@@ -11,7 +11,6 @@ chrome.storage.sync.get("enable", (res) => {
         `;
         document.body.appendChild(div);
 
-
         // load the quotes from the json file
         const quotesURL = chrome.runtime.getURL('quotes.json');
         var quotes;
@@ -24,6 +23,7 @@ chrome.storage.sync.get("enable", (res) => {
                 setInterval( () => sayQuote(quotes), 5000 + Math.random()*3000);
             })
             .catch((error) => console.log(error, error.message));
+        div.onclick((t, e) => {sayQuote(quotes);});
 }})
             
      
